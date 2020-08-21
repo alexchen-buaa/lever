@@ -19,14 +19,14 @@ class Lever():
     """All basic operations of lever."""
 
     def __init__(self):
-        with open('/Users/alexchen/local/toolbox/lever/database.json', 'r') as database:
+        with open('/Users/alexchen/toolbox/lever/database.json', 'r') as database:
             try:
                 self.data = json.load(database)
             except json.decoder.JSONDecodeError:
                 # except when the database is empty
                 self.data = []
         assert isinstance(self.data, list)
-        with open('/Users/alexchen/local/toolbox/lever/log.json', 'r') as log:
+        with open('/Users/alexchen/toolbox/lever/log.json', 'r') as log:
             try:
                 self.log = json.load(log)
             except json.decoder.JSONDecodeError:
@@ -147,9 +147,9 @@ class Lever():
 
     def save(self):
         '''save changes to the database and log'''
-        with open('/Users/alexchen/local/toolbox/lever/database.json', 'w') as database:
+        with open('/Users/alexchen/toolbox/lever/database.json', 'w') as database:
             json.dump(self.data, database)
-        with open('/Users/alexchen/local/toolbox/lever/log.json', 'w') as log:
+        with open('/Users/alexchen/toolbox/lever/log.json', 'w') as log:
             json.dump(self.log, log)
 
     def reset(self):
